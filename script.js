@@ -8,6 +8,10 @@ function generatePassword() {
 
     var length = prompt("How many characters would you like your password to contain?");
     var isSpecial, isNumeric, isLowercase, isUppercase;
+    var specialSet = "!\"#$%&'()*+,-./:;<=>?@[]\\^_`{}|~";
+    var numericSet = "0123456789";
+    var lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
+    var uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     if(length === null) {
       return;
