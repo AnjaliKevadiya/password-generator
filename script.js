@@ -19,9 +19,11 @@ function generatePassword() {
       return;
     } else if (isNaN(length)) {
       alert("It is not a number. Please enter any number.");
+      return generatePassword();
     }
     else if (length < 8 || length > 128) {
       alert("Password length should be at least 8 characters and no more than 128 characters.");
+      return generatePassword();
     } 
 
     var special = confirm("Click ok to confirm including special characters");
@@ -72,5 +74,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (password !== undefined) {
+    passwordText.value = password;
+  }
 }
