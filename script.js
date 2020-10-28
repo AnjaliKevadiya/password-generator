@@ -12,6 +12,8 @@ function generatePassword() {
     var numericSet = "0123456789";
     var lowercaseSet = "abcdefghijklmnopqrstuvwxyz";
     var uppercaseSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var characters = "";
+    var password = "";
 
     if(length === null) {
       return;
@@ -26,6 +28,7 @@ function generatePassword() {
 
     if (special) {
       isSpecial = true;
+      characters += specialSet;
     } else {
       isSpecial = false;
     }
@@ -34,6 +37,7 @@ function generatePassword() {
 
     if (numeric) {
       isNumeric = true;
+      characters += numericSet;
     } else {
       isNumeric = false;
     }
@@ -42,6 +46,7 @@ function generatePassword() {
 
     if (lowercase) {
       isLowercase = true;
+      characters += lowercaseSet;
     } else {
       isLowercase = false;
     }
@@ -50,10 +55,16 @@ function generatePassword() {
 
     if (uppercase) {
       isUppercase = true;
+      characters += uppercaseSet;
     } else {
       isUppercase = false;
     }
 
+    for(var i = 0; i < length; i++) {
+      var random = Math.floor(Math.random() * characters.length);
+      password += characters.charAt(random);
+    }
+    return password;
 }
 
 // Write password to the #password input
