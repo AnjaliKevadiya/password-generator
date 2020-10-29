@@ -65,7 +65,6 @@ function generatePassword() {
       var random = getRandomInt(characters.length);
       password += characters.charAt(random);
     }
-    alert(password);
 
     password = shuffle(password);
     return password;
